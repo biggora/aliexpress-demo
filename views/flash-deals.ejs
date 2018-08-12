@@ -1,0 +1,38 @@
+<% layout('./layout') -%>
+
+<div class="container">
+    <div class="row">
+        <h1><%- title %></h1>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <% if(data && data.products) { %>
+        <% data.products.forEach(function(p){ %>
+        <div class="col col-lg-3 col-md-4 col-sm-6">
+
+            <div class="card product" style="width: 18rem;">
+                <a href="/product/<%- p.productId %>">
+                    <img class="card-img-top" src="<%- p.productImage %>" alt="<%- p.productTitle %>">
+                </a>
+                <div class="card-body">
+                    <h4 class="card-title ellipsis"><%- p.productTitle %></h4>
+                    <h6>
+                        <%- p.minPrice %>  <%- p.currency %>
+                        <% if(p.discount) { %>
+                        <span class="badge badge-danger">-<%- p.discount %>%</span>
+                        <% } %>
+                    </h6>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a href="/product/<%- p.productId %>" class="btn btn-primary">go details</a>
+                </div>
+            </div>
+
+        </div>
+        <% }) %>
+        <% } %>
+    </div>
+</div>
+
+
