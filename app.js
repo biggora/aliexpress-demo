@@ -11,6 +11,7 @@ global.spiderConfig.limit = 12;
 var indexRouter = require('./routes/index');
 
 var productRouter = require('./routes/product');
+var searchHandler = require('./routes/search');
 var flashDealsRouter = require('./routes/flash-deals');
 
 var app = express();
@@ -29,11 +30,13 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/bootstrap', express.static(__dirname + '/node_modules/bootstrap/dist'));
 app.use('/jquery', express.static(__dirname + '/node_modules/jquery/dist'));
+app.use('/font-awesome', express.static(__dirname + '/node_modules/font-awesome'));
 
 app.use('/', indexRouter);
 
 app.use('/product', productRouter);
 app.use('/flash-deals', flashDealsRouter);
+app.use('/search', searchHandler);
 
 
 // catch 404 and forward to error handler
