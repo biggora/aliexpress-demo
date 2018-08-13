@@ -18,7 +18,7 @@ var searchHandler = function (req, res, next) {
         SortType: query.sort || 'total_tranpro_desc'
     }).then(function (d) {
         d.query = query;
-        console.log('Search', d.products[0])
+        // console.log('Search', d.products[0])
         d.prev = true;
         d.next = true;
         // if (d.products.length < query.limit) {
